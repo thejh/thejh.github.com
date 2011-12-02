@@ -16,7 +16,7 @@ function drawTree(rootNode, width, insertionPoint) {
       drawTree(child, childWidth, block.block)
     }
   })
-  block.block.addEventListener('click', function(evt) {
+  block.labelNode.addEventListener('click', function(evt) {
     while (body.hasChildNodes()) body.removeChild(body.lastChild)
     drawTree(rootNode, 1, body)
   }, false);
@@ -28,7 +28,7 @@ function Block(node, width) {
   block.className = 'block';
   block.style.width = width*100 + '%';
     
-  var labelBlock = document.createElement('div');
+  var labelBlock = this.labelNode = document.createElement('div');
   labelBlock.className = 'blockLabel';
   labelBlock.style.backgroundColor = 'lightblue';
   labelBlock.appendChild(document.createTextNode(node.label));
