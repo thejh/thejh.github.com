@@ -16,6 +16,10 @@ function drawTree(rootNode, width, insertionPoint) {
       drawTree(child, childWidth, block.block)
     }
   })
+  block.block.addEventListener('click', function(evt) {
+    while (body.hasChildNodes()) body.removeChild(body.lastChild)
+    drawTree(rootNode, 1, body)
+  }, false);
   insertionPoint.appendChild(block.block)
 }
 
